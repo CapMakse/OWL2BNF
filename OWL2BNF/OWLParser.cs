@@ -59,7 +59,7 @@ namespace OWL2BNF
                 string className = GetAttribute(prop.Element(nameSpace + "Class").FirstAttribute);
                 string propertyName = GetAttribute(prop.Element(nameSpace + "ObjectAllValuesFrom").Element(nameSpace + "ObjectProperty").FirstAttribute);
                 string propertyClassName = GetAttribute(prop.Element(nameSpace + "ObjectAllValuesFrom").Element(nameSpace + "Class").FirstAttribute);
-                classes[className].properties.Add(new PropertyObject(propertyName, propertyClassName));
+                if (properties.Contains(propertyName)) classes[className].properties.Add(new PropertyObject(propertyName, propertyClassName));
             }
             return classes.Values.ToList<ClassObject>();
         }
